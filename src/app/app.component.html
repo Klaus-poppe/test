@@ -1,20 +1,94 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<div class="mt-5 mx-auto container w-75 shadow-lg p-3 mb-5 bg-white rounded " style="height: 600px">
+  <span class="display-4">Bot</span>
+  <!-- <button  type="button" class=" float-right btn btn-dark mx-1">Logout</button>
+  <button  type="button" class=" float-right btn btn-dark mx-1" data-toggle="modal" data-target="#login">Login</button>
+  <button  type="button" class=" float-right btn btn-dark mx-1" data-toggle="modal" data-target="#signUp">Sign up</button> -->
+  <hr>
+  <div class = "mx-auto overflow-auto container chatItems" id="messages" style="height: 70%;">
+    <ul  class="list-group list-group-flush">
+      <li *ngFor="let msg of messages"  class="list-group-item">
+        <img [src]="msg.avatar" style="height: 10%; width: 5%;"  class="img-thumbnail rounded-circle"/>
+        <span> 
+          {{msg.content}} <br>  
+          <i class="fa fa-clock-o" aria-hidden="true"></i> <span class="timestamp"> at {{msg.timestamp | date : 'dd/MM/yyyy' }}</span>
+        </span>
+      </li>
+    </ul>
+  </div>      
+
+  <div style = "position: sticky ; top: 78%;">
+      <div class="row">
+          <div class="col-10">
+          <input type="text" class="form-control" [(ngModel)] = "message.content" id="input" placeholder="Enter your queries here..">
+          </div>
+          <div class="col-2">
+          <input type="button" class="btn btn-success form-control" id="submit" (click) ="userInput()" value="Enter">
+          </div>
+      </div>
+  </div>                                   
+
+</div>
+
+
+<!-- Login -->
+<!-- <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+              <div class="form-group">
+                  <label>Username</label>
+                  <input type="text" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" id="password">
+                </div>                   
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success"  (click) ="login()" data-dismiss="modal">Login</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Sign up -->
+<!-- <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+              <div class="form-group">
+                  <label>Username</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                  <label>Height</label>
+                  <input type="password" class="form-control" id="height">
+                </div>            
+                <div class="form-group">
+                  <label>Weight</label>
+                  <input type="password" class="form-control" id="weight">
+                </div>    
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" id="pass">
+                </div>    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success"  (click) ="signup()" data-dismiss="modal">Sign up</button>
+      </div>
+    </div>
+  </div>
+</div> -->
