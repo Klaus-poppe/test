@@ -1,5 +1,5 @@
 
-<div class="mt-5 mx-auto container w-75 shadow-lg p-3 mb-5 bg-white rounded " style="height: 600px">
+<div class="mt-5 mx-auto container w-75 shadow-lg p-3 mb-5 bg-white rounded " style="height: 800px">
   <span class="display-4">Bot</span>
   <!-- <button  type="button" class=" float-right btn btn-dark mx-1">Logout</button>
   <button  type="button" class=" float-right btn btn-dark mx-1" data-toggle="modal" data-target="#login">Login</button>
@@ -10,14 +10,14 @@
       <li *ngFor="let msg of messages"  class="list-group-item">
         <img [src]="msg.avatar" style="height: 10%; width: 5%;"  class="img-thumbnail rounded-circle"/>
         <span> 
-          {{msg.content}} <br>  
+            {{msg.content}} <br>  
           <i class="fa fa-clock-o" aria-hidden="true"></i> <span class="timestamp"> at {{msg.timestamp | date : 'dd/MM/yyyy' }}</span>
         </span>
       </li>
     </ul>
   </div>      
 
-  <div style = "position: sticky ; top: 78%;">
+  <div style = "position: sticky ; top: 75%;">
       <div class="row">
           <div class="col-10">
           <input type="text" class="form-control" [(ngModel)] = "message.content" id="input" placeholder="Enter your queries here..">
